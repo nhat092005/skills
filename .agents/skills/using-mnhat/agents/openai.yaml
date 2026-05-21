@@ -1,0 +1,7 @@
+interface:
+  display_name: "using-mnhat"
+  short_description: "Bootstrap and route the mnhat workflow."
+  default_prompt: "Use $using-mnhat to surface any handoff, check current bd context, and route the session into the correct next mnhat skill."
+
+policy:
+  allow_implicit_invocation: true

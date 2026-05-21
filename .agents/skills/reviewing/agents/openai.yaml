@@ -1,0 +1,7 @@
+interface:
+  display_name: "Reviewing"
+  short_description: "Run the final quality gate."
+  default_prompt: "Use $reviewing to inspect completed work, verify artifacts, report P1/P2/P3 findings, and prepare a clean handoff into compounding or follow-up fixes."
+
+policy:
+  allow_implicit_invocation: true

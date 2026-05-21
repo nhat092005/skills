@@ -1,0 +1,7 @@
+interface:
+  display_name: "Swarming"
+  short_description: "Coordinate explicit parallel execution."
+  default_prompt: "Use $swarming to split approved current work into safe parallel slices, dispatch workers only when delegation is wanted, and coordinate status and handoff."
+
+policy:
+  allow_implicit_invocation: true

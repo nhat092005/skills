@@ -1,0 +1,7 @@
+interface:
+  display_name: "Compounding"
+  short_description: "Capture durable lessons from completed work."
+  default_prompt: "Use $compounding to extract reusable patterns, decisions, and failures from completed work, record durable lessons with bd remember, and file any real follow-up work in bd."
+
+policy:
+  allow_implicit_invocation: true

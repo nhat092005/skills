@@ -1,0 +1,7 @@
+interface:
+  display_name: "Exploring"
+  short_description: "Lock scope and decisions before planning."
+  default_prompt: "Use $exploring to turn a fuzzy feature idea into a concrete CONTEXT.md with locked decisions, boundaries, and deferred questions."
+
+policy:
+  allow_implicit_invocation: true
