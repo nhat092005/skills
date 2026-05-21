@@ -28,8 +28,11 @@ description: Create new agent skills with proper structure, progressive disclosu
 ```
 skill-name/
 ├── SKILL.md           # Main instructions (required)
-├── REFERENCE.md       # Detailed docs (if needed)
-├── EXAMPLES.md        # Usage examples (if needed)
+├── agents/
+│   └── openai.yaml
+├── references/
+│   ├── REFERENCE.md       # Detailed docs (if needed)
+│   └── EXAMPLES.md        # Usage examples (if needed)
 └── scripts/           # Utility scripts (if needed)
     └── helper.js
 ```
@@ -54,7 +57,7 @@ description: Brief description of capability. Use when [specific triggers].
 
 ## Advanced features
 
-[Link to separate files: See [REFERENCE.md](REFERENCE.md)]
+[Link to separate files: See [REFERENCE.md](references/REFERENCE.md)]
 ```
 
 ## Description Requirements

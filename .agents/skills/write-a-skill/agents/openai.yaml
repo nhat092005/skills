@@ -1,2 +1,7 @@
+interface:
+  display_name: "Skill Writer"
+  short_description: "Create new agent skills with proper structure, progressive disclosure, and bundled resources."
+  default_prompt: "Use $write-a-skill to create a new skill for [task/domain]."
+
 policy:
   allow_implicit_invocation: false

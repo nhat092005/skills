@@ -6,6 +6,7 @@ description: Use when a bug, flaky test, unexpected runtime behavior, or contrad
 # Diagnose Loop
 
 ## Overview
+
 Debug with evidence, not optimism. The fix should follow a reproduced failure and a tested hypothesis.
 
 ## When to Use
@@ -18,13 +19,15 @@ Debug with evidence, not optimism. The fix should follow a reproduced failure an
 ## Workflow
 
 1. Build the smallest feedback loop that makes the bug visible.
+   Improve it until it is fast enough and deterministic enough to trust.
 2. Reproduce the failure and record the exact symptom.
 3. Narrow the scope: input, environment, component, or commit range.
-4. Form one hypothesis at a time.
+4. List 2-3 plausible hypotheses, then test one at a time.
+   Show the ranked list to the user before testing when that checkpoint is cheap.
 5. Add the smallest useful instrumentation.
 6. Confirm or kill the hypothesis with evidence.
 7. Apply the narrowest fix that matches the proven cause.
-8. Add or run regression verification.
+8. Add a regression test when there is a reliable seam; otherwise rerun the feedback loop and document the missing seam.
 
 ## Rules
 
@@ -34,4 +37,6 @@ Debug with evidence, not optimism. The fix should follow a reproduced failure an
 - Tag temporary debug instrumentation with a unique prefix so cleanup is mechanical.
 - Prefer checking real contracts, test fixtures, and runtime state over guesswork.
 - If the bug is flaky, first improve the feedback loop before changing code.
+- Aim to raise reproduction rate, not necessarily to reach 100%.
 - If reproduction is impossible, state the missing evidence clearly.
+- Before done, remove temporary instrumentation and rerun the original repro.

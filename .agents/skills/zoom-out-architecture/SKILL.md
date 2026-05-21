@@ -6,6 +6,7 @@ description: Use when a local change may hide broader architectural coupling, na
 # Zoom Out Architecture
 
 ## Overview
+
 Pause local optimization long enough to ask whether the surrounding design still makes sense. The aim is to prevent accidental complexity from spreading one patch at a time.
 
 ## When to Use

@@ -1,2 +1,7 @@
+interface:
+  display_name: "Diagnose Loop"
+  short_description: "Disciplined debugging before fixing."
+  default_prompt: "Use $diagnose-loop to reproduce the bug, narrow scope, test hypotheses with evidence, and identify the proven cause before changing code."
+
 policy:
   allow_implicit_invocation: true

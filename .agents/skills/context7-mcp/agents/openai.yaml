@@ -1,2 +1,7 @@
+interface:
+  display_name: "Context7 MCP"
+  short_description: "Query current web documentation and data using Context7."
+  default_prompt: "Use $context7-mcp to fetch current documentation when the user asks about libraries, frameworks, or APIs. First resolve the library ID, then query the docs."
+
 policy:
   allow_implicit_invocation: true

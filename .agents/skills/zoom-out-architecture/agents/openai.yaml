@@ -1,2 +1,7 @@
+interface:
+  display_name: "Zoom Out Architecture"
+  short_description: "Check surrounding architecture before local changes."
+  default_prompt: "Use $zoom-out-architecture before making architectural changes to evaluate system-wide impact."
+
 policy:
   allow_implicit_invocation: false
