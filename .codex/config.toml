@@ -1,0 +1,20 @@
+#:schema https://developers.openai.com/codex/config-schema.json
+
+project_doc_max_bytes = 65536
+project_root_markers = [".git", "AGENTS.md"]
+
+compact_prompt = """
+MANDATORY: Repo session recovery.
+
+STOP. Before doing anything else:
+1. Read AGENTS.md completely.
+2. If present, read .mnhat/session/HANDOFF.json.
+3. Re-open the current bd item before more planning or edits.
+4. Re-open the current source-of-truth artifact under .mnhat/ when work is already in progress.
+5. Check the current worktree state with git status before resuming.
+
+After completing these steps, briefly confirm what context you restored and only then continue.
+"""
+
+[features]
+hooks = true
