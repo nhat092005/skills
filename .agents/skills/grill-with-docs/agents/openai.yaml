@@ -1,0 +1,7 @@
+interface:
+  display_name: "Grill with docs"
+  short_description: "Relentlessly interviews your plan, sharpens domain language, and writes CONTEXT.md and ADRs as decisions land."
+  default_prompt: "Use $grill-with-docs to stress-test my plan."
+
+policy:
+  allow_implicit_invocation: true
