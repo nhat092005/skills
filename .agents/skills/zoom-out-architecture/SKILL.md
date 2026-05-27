@@ -5,27 +5,42 @@ description: Use when a local change may hide broader architectural coupling, na
 
 # Zoom Out Architecture
 
-## Overview
-
 Pause local optimization long enough to ask whether the surrounding design still makes sense. The aim is to prevent accidental complexity from spreading one patch at a time.
 
-## When to Use
+## Quick start
 
-- A small change touches several modules.
-- New logic duplicates an existing concept.
-- A fix starts leaking complexity across boundaries.
-- The user asks for architecture review or broader context.
+- Identify the module or entrypoint being changed.
+- Trace the nearest dependencies, callers, and boundary crossings.
+- Check whether the change extends an existing concept or creates a sibling abstraction.
+- Stop with a short architectural impact summary before proceeding.
 
-## Workflow
+## Workflows
 
-1. Identify the module or entrypoint being changed.
-2. Trace nearby dependencies and callers.
-3. Check whether the change deepens an existing module or creates new surface area.
-4. Look for duplication, naming drift, and boundary violations.
-5. Summarize the architectural impact before implementation or refactor.
+1. Use this skill when:
+   - a small change touches several modules
+   - new logic duplicates an existing concept
+   - a fix starts leaking complexity across boundaries
+   - the user asks for architecture review or broader context
+2. Start from the concrete entrypoint or module being changed.
+3. Trace nearby dependencies, callers, and shared concepts.
+4. Check whether the change:
+   - deepens an existing module safely
+   - creates new surface area
+   - introduces naming drift
+   - crosses a boundary that should stay narrow
+5. End with a short architectural impact summary:
+   - what is affected
+   - what design risk exists
+   - whether to proceed, refactor first, or stop and escalate
 
-## Rules
+## Hard gate
 
 - Favor deeper modules with simpler interfaces.
 - Prefer extending an existing concept over inventing a sibling abstraction.
 - Call out when a quick fix increases long-term coupling.
+- Do not approve a local patch without naming the boundary or coupling cost when one exists.
+
+## Further reading
+
+- `../repo-bootstrap/SKILL.md` - use first when the repo or subsystem is still too unfamiliar for architecture judgment
+- `../plan-griller/SKILL.md` - use when the main blocker is ambiguity in scope or implementation target rather than architectural coupling

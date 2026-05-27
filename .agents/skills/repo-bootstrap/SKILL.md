@@ -9,43 +9,45 @@ metadata:
 
 Build context from the repo's real constraints before changing anything.
 
-Load [references/prompt-template.md](references/prompt-template.md) when the user wants a reusable bootstrap prompt or when you need a strong starting template before beginning repo discovery.
+## Quick start
 
-## Modes
+- Read `AGENTS.md` and `README.md` completely before deeper inspection.
+- Decide whether the job is `Prompt-only`, `Repo bootstrap`, or `Prompt + bootstrap`.
+- Identify the highest-signal source of truth for the task.
+- Summarize the repo from inspected files, not from directory names alone.
 
-- `Prompt-only`: refine the user's rough prompt and return the upgraded version.
-- `Repo bootstrap`: read the repo, investigate source, deliver onboarding summary.
-- `Prompt + bootstrap`: do both in the same pass.
+## Workflows
 
-## Workflow
+1. Choose the mode:
+   - `Prompt-only`: refine a rough bootstrap prompt and return the upgraded version.
+   - `Repo bootstrap`: inspect the repo and deliver a grounded onboarding summary.
+   - `Prompt + bootstrap`: do both in one pass.
+2. Read `AGENTS.md` and `README.md`. This is mandatory, not optional.
+3. Identify the real source of truth for the task:
+   - docs
+   - tests
+   - current code
+   - runtime checks
+4. Map entrypoints, affected paths, and major subsystems from source, not from folder names alone.
+5. Find the smallest relevant verification commands.
+6. End with a practical handoff that captures:
+   - repo purpose
+   - architecture and runtime model
+   - major components
+   - key commands and conventions
+   - open questions
+   - best next files to read
 
-1. Read `AGENTS.md` and `README.md` completely. Mandatory, not optional.
-2. Identify the source of truth for the task: docs, tests, current code, or runtime checks.
-3. Map entrypoints, affected paths, and major subsystems from source — not from directory names alone.
-4. Find the smallest relevant verification commands.
-5. Only then move into planning or implementation.
+## Hard gate
 
-## Rules
+Do not move into planning or implementation until:
 
-- Do not trust old plans without re-checking the live repo.
-- Prefer narrow inspection over broad file dumps.
-- If sources conflict, stop and resolve before coding.
-- Every claim in the summary must trace back to a file you actually read.
+- `AGENTS.md` and `README.md` were read when present
+- the summary is grounded in files you actually inspected
+- repo conventions, key workflows, and verification commands are clear enough for the next step
 
-## Red Flags
+If sources conflict, stop and resolve the conflict before coding.
 
-Stop and correct if any of these appear:
+## Further reading
 
-- Skipping or skimming `AGENTS.md` / `README.md`
-- Inferring architecture from directory names alone
-- Jumping into code before reading repo instructions
-- Giving a vague summary with no file-grounded evidence
-
-## Done Criteria
-
-This skill is complete when:
-
-- `AGENTS.md` and `README.md` were read fully
-- Project purpose and architecture are explained from inspected source
-- Main components, workflows, and verification commands are identified
-- Repo conventions and open questions are captured clearly enough for the next turn to start productively
+- `references/prompt-template.md` - reusable full and compact bootstrap prompts for repo orientation
