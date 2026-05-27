@@ -1,0 +1,7 @@
+interface:
+  display_name: "Grill Me"
+  short_description: "Stress-test a plan or design one question at a time."
+  default_prompt: "Use $grill-me to interrogate my plan or design relentlessly: inspect local evidence before asking, ask one question at a time, recommend an answer for each question, and keep going until the key decision branches are resolved."
+
+policy:
+  allow_implicit_invocation: false
