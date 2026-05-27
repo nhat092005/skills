@@ -1,7 +1,0 @@
-interface:
-  display_name: "Validating"
-  short_description: "Prove planned work is feasible before execution."
-  default_prompt: "Use $validating to test whether the planned current work is real, feasible, and ready for approval before execution begins."
-
-policy:
-  allow_implicit_invocation: true

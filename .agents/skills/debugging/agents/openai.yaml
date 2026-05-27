@@ -1,7 +1,0 @@
-interface:
-  display_name: "Debugging"
-  short_description: "Diagnose and unblock failures with evidence."
-  default_prompt: "Use $debugging to triage a failure, reproduce it, identify the root cause with evidence, and either fix it safely or return a precise blocker report."
-
-policy:
-  allow_implicit_invocation: true

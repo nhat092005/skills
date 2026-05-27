@@ -1,0 +1,7 @@
+interface:
+  display_name: "mnhat-compounding"
+  short_description: "Capture durable lessons from completed work."
+  default_prompt: "Use $mnhat-compounding to extract reusable patterns, decisions, and failures from completed work, write the workstream-first compounding artifacts, record durable lessons with bd remember, and file real follow-up work in bd."
+
+policy:
+  allow_implicit_invocation: true

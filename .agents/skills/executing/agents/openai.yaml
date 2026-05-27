@@ -1,7 +1,0 @@
-interface:
-  display_name: "Executing"
-  short_description: "Implement one approved work slice."
-  default_prompt: "Use $executing to implement one approved current-work item, verify it, and return a concise completion or blocker report."
-
-policy:
-  allow_implicit_invocation: true

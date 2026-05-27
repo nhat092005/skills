@@ -1,0 +1,459 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "mnhat state.json",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "created_at",
+    "updated_at",
+    "last_actor",
+    "mode",
+    "status",
+    "outcome",
+    "phase",
+    "feature_slug",
+    "workstream_dir",
+    "current_work",
+    "primary_artifact",
+    "artifact_paths",
+    "write_paths",
+    "completed_steps",
+    "remaining_steps",
+    "resume_point",
+    "resume_checks",
+    "verification_state",
+    "worktree_state",
+    "branch",
+    "head_commit",
+    "active_slices",
+    "context_notes"
+  ],
+  "properties": {
+    "schema_version": {
+      "type": "integer",
+      "const": 1
+    },
+    "created_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "updated_at": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "last_actor": {
+      "type": "string",
+      "pattern": "^(codex|user|orchestrator|worker:[a-z0-9][a-z0-9-]*)$"
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["solo", "swarm"]
+    },
+    "status": {
+      "type": "string",
+      "enum": ["active", "paused", "done", "superseded", "invalid"]
+    },
+    "outcome": {
+      "type": "string",
+      "enum": ["none", "blocked", "cancelled", "replaced"]
+    },
+    "phase": {
+      "type": "string",
+      "enum": [
+        "exploring",
+        "planning",
+        "validating",
+        "executing",
+        "swarming",
+        "debugging",
+        "reviewing",
+        "compounding"
+      ]
+    },
+    "feature_slug": {
+      "type": "string",
+      "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "workstream_dir": {
+      "type": "string",
+      "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*$"
+    },
+    "current_work": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["tracker_type", "tracker_id", "title", "scope"],
+      "properties": {
+        "tracker_type": {
+          "type": "string",
+          "minLength": 1
+        },
+        "tracker_id": {
+          "type": ["string", "null"]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1
+        },
+        "scope": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "primary_artifact": {
+      "type": "string",
+      "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/(exploring|planning|validating|executing|swarming|debugging|reviewing|compounding)\\/[a-z0-9.-]+$"
+    },
+    "artifact_paths": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*(\\/(exploring|planning|validating|executing|swarming|debugging|reviewing|compounding)\\/[a-z0-9.-]+|\\/implementation-record\\.md)|[^/].*)$"
+      }
+    },
+    "write_paths": {
+      "$ref": "#/$defs/relativePathArray"
+    },
+    "completed_steps": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "remaining_steps": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "resume_point": {
+      "type": "string",
+      "minLength": 1
+    },
+    "resume_checks": {
+      "$ref": "#/$defs/stringArray"
+    },
+    "verification_state": {
+      "$ref": "#/$defs/verificationState"
+    },
+    "worktree_state": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["dirty", "uncommitted_paths"],
+      "properties": {
+        "dirty": {
+          "type": "boolean"
+        },
+        "uncommitted_paths": {
+          "$ref": "#/$defs/relativePathArray"
+        }
+      }
+    },
+    "branch": {
+      "type": "string",
+      "minLength": 1
+    },
+    "head_commit": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{40}$"
+    },
+    "active_slices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "slice_id",
+          "title",
+          "ownership",
+          "write_paths",
+          "completed_steps",
+          "remaining_steps",
+          "verification_state",
+          "resume_point",
+          "status"
+        ],
+        "properties": {
+          "slice_id": {
+            "type": "string",
+            "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"
+          },
+          "title": {
+            "type": "string",
+            "minLength": 1
+          },
+          "ownership": {
+            "$ref": "#/$defs/relativePathArray"
+          },
+          "write_paths": {
+            "$ref": "#/$defs/relativePathArray"
+          },
+          "completed_steps": {
+            "$ref": "#/$defs/stringArray"
+          },
+          "remaining_steps": {
+            "$ref": "#/$defs/stringArray"
+          },
+          "verification_state": {
+            "$ref": "#/$defs/verificationState"
+          },
+          "resume_point": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "type": "string",
+            "enum": ["not_started", "in_progress", "done", "blocked", "paused", "noop"]
+          }
+        }
+      }
+    },
+    "context_notes": {
+      "type": ["string", "null"]
+    }
+  },
+  "$defs": {
+    "stringArray": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "relativePathArray": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "pattern": "^(?!/)(?!.*//).+$"
+      }
+    },
+    "verificationState": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "completed_checks", "pending_checks"],
+      "properties": {
+        "status": {
+          "type": "string",
+          "enum": ["not_started", "in_progress", "passed", "failed"]
+        },
+        "completed_checks": {
+          "$ref": "#/$defs/stringArray"
+        },
+        "pending_checks": {
+          "$ref": "#/$defs/stringArray"
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "mode": {
+            "const": "solo"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "active_slices": {
+            "maxItems": 0
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "mode": {
+            "const": "swarm"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "phase": {
+            "const": "swarming"
+          },
+          "active_slices": {
+            "minItems": 1
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "phase": {
+            "const": "exploring"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "primary_artifact": {
+            "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/exploring\\/context\\.md$"
+          },
+          "artifact_paths": {
+            "contains": {
+              "type": "string",
+              "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/exploring\\/context\\.md$"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "phase": {
+            "const": "planning"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "primary_artifact": {
+            "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/planning\\/current-story-pack\\.md$"
+          },
+          "artifact_paths": {
+            "contains": {
+              "type": "string",
+              "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/planning\\/current-story-pack\\.md$"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "phase": {
+            "const": "validating"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "primary_artifact": {
+            "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/validating\\/validation-report\\.md$"
+          },
+          "artifact_paths": {
+            "contains": {
+              "type": "string",
+              "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/validating\\/validation-report\\.md$"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "phase": {
+            "const": "executing"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "primary_artifact": {
+            "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/executing\\/execution-report\\.md$"
+          },
+          "artifact_paths": {
+            "contains": {
+              "type": "string",
+              "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/executing\\/execution-report\\.md$"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "phase": {
+            "const": "swarming"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "primary_artifact": {
+            "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/swarming\\/dispatch-plan\\.md$"
+          },
+          "artifact_paths": {
+            "contains": {
+              "type": "string",
+              "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/swarming\\/dispatch-plan\\.md$"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "phase": {
+            "const": "debugging"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "primary_artifact": {
+            "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/debugging\\/debug-report\\.md$"
+          },
+          "artifact_paths": {
+            "contains": {
+              "type": "string",
+              "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/debugging\\/debug-report\\.md$"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "phase": {
+            "const": "reviewing"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "primary_artifact": {
+            "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/reviewing\\/review-report\\.md$"
+          },
+          "artifact_paths": {
+            "contains": {
+              "type": "string",
+              "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/reviewing\\/review-report\\.md$"
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "phase": {
+            "const": "compounding"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "primary_artifact": {
+            "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/compounding\\/compounding-report\\.md$"
+          },
+          "artifact_paths": {
+            "contains": {
+              "type": "string",
+              "pattern": "^\\.mnhat\\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[a-z0-9]+(?:-[a-z0-9]+)*\\/compounding\\/compounding-report\\.md$"
+            }
+          }
+        }
+      }
+    }
+  ]
+}

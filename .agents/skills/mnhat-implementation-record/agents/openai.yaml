@@ -1,0 +1,7 @@
+interface:
+  display_name: "mnhat-implementation-record"
+  short_description: "Append canonical implementation record entries."
+  default_prompt: "Use $mnhat-implementation-record to append a canonical decision entry to the active workstream `implementation-record.md` when an MNHAT phase needs durable local recordkeeping."
+
+policy:
+  allow_implicit_invocation: false

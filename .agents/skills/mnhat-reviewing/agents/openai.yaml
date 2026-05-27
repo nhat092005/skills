@@ -1,0 +1,7 @@
+interface:
+  display_name: "mnhat-reviewing"
+  short_description: "Run the final quality gate."
+  default_prompt: "Use $mnhat-reviewing to inspect completed work, verify artifacts, report P1/P2/P3 findings, and write the workstream-first review outputs before handoff."
+
+policy:
+  allow_implicit_invocation: true

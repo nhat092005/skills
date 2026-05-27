@@ -1,0 +1,7 @@
+interface:
+  display_name: "mnhat-exploring"
+  short_description: "Lock scope and decisions before planning."
+  default_prompt: "Use $mnhat-exploring to turn a fuzzy request into the workstream-first exploring artifacts under `.mnhat/<YYYY-MM-DD>-<feature-slug>/exploring/` with locked decisions, open questions, and resolved questions."
+
+policy:
+  allow_implicit_invocation: true

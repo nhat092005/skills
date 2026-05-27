@@ -1,0 +1,7 @@
+interface:
+  display_name: "mnhat-planning"
+  short_description: "Turn locked context into an executable plan."
+  default_prompt: "Use $mnhat-planning to turn locked context into the workstream-first planning artifacts under `.mnhat/<YYYY-MM-DD>-<feature-slug>/planning/` with clear proof and approval boundaries."
+
+policy:
+  allow_implicit_invocation: true

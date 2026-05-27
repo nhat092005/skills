@@ -1,7 +1,0 @@
-interface:
-  display_name: "Planning"
-  short_description: "Turn locked context into an executable plan."
-  default_prompt: "Use $planning to turn a locked context document into the smallest believable execution plan, with clear proof needs and approval boundaries."
-
-policy:
-  allow_implicit_invocation: true
