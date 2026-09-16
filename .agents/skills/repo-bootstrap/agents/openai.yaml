@@ -1,7 +1,0 @@
-interface:
-  display_name: "Bootstrap Project Context"
-  short_description: "Start a session with full repo context"
-  default_prompt: "Use $repo-bootstrap to read AGENTS.md and README.md, inspect the codebase, and summarize the project architecture, purpose, and implementation model."
-
-policy:
-  allow_implicit_invocation: true

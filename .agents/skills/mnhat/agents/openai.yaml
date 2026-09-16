@@ -1,7 +1,0 @@
-interface:
-  display_name: "mnhat"
-  short_description: "Recover state and route the MNHAT workflow family."
-  default_prompt: "Use $mnhat to surface .mnhat/state.json when present, restore the active workstream tree and artifact context, and route the session into the correct next mnhat phase skill."
-
-policy:
-  allow_implicit_invocation: true

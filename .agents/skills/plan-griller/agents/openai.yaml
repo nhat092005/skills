@@ -1,7 +1,0 @@
-interface:
-  display_name: "Plan Griller"
-  short_description: "Resolve risky ambiguity before planning or code changes."
-  default_prompt: "Use $plan-griller to reduce ambiguity before implementation: inspect local evidence first, ask one unresolved question at a time, recommend an answer, and end with a bounded implementation target with scope, non-goals, verification, and next step."
-
-policy:
-  allow_implicit_invocation: false

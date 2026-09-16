@@ -1,7 +1,0 @@
-interface:
-  display_name: "TDD Slice"
-  short_description: "Run one red-green-refactor slice with explicit proof."
-  default_prompt: "Use $tdd-slice to drive one test-first vertical slice: choose one behavior, write one failing test, make it pass with the smallest change, rerun proof, and report the next slice or stop condition."
-
-policy:
-  allow_implicit_invocation: false

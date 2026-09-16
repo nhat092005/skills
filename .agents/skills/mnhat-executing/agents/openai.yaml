@@ -1,7 +1,0 @@
-interface:
-  display_name: "mnhat-executing"
-  short_description: "Implement one approved work slice."
-  default_prompt: "Use $mnhat-executing to implement one approved current-work item, verify it, write the workstream-first `execution-report.md`, and return a precise completion or blocker report."
-
-policy:
-  allow_implicit_invocation: true

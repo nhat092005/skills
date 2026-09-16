@@ -1,7 +1,0 @@
-interface:
-  display_name: "Session Handoff"
-  short_description: "Create a temp chat-handoff note from canonical MNHAT state."
-  default_prompt: "Use $session-handoff to read the active `.mnhat` workstream, summarize canonical state plus ephemeral chat context into `/tmp/codex-handoffs/<YYYY-MM-DD>-<feature-slug>-handoff.md`, and return the file path with the recommended next skill."
-
-policy:
-  allow_implicit_invocation: false

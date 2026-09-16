@@ -1,0 +1,7 @@
+<type>(<scope>): <short summary>
+
+<body explaining why the change is needed, written in imperative mood>
+
+<optional footer such as Fixes #123>
+<optional footer such as Closes #123>
+<optional footer such as BREAKING CHANGE: ...>

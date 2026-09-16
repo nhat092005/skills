@@ -1,7 +1,0 @@
-interface:
-  display_name: "mnhat-debugging"
-  short_description: "Diagnose and unblock failures with evidence."
-  default_prompt: "Use $mnhat-debugging to triage a failure, reproduce it, identify the root cause with evidence, and write the workstream-first `debug-report.md` before returning a precise outcome."
-
-policy:
-  allow_implicit_invocation: true
