@@ -4,7 +4,7 @@ description: Investigate a technical problem through a Design Science Research
   loop (Problem Framing -> Awareness -> Suggestion -> Development -> Evaluation
   -> Conclusion), grounding each phase in evidence and looping until success
   criteria are met or the iteration cap is hit. Use when the user hands off a
-  problem that needs "nghien cuu sau", "dao ky", "tim giai phap co can cu", or
+  problem that needs "nghiên cứu sâu", "đào kỹ", "tìm giải pháp có căn cứ", or
   wants a solution backed by researched evidence and prior art rather than a
   first guess. Not for summarizing or taking notes on a single paper -- use
   paper-note for that.
@@ -25,7 +25,7 @@ instead of guessing.
 1. **Problem Framing** -- state the problem, scope, and success criteria in
    one paragraph. Ask the user back only if the scope is genuinely unclear;
    otherwise state the assumption and move on.
-2. **Awareness** -- search and read prior art, existing solutions, docs.
+2. **Awareness** -- search and read prior art, existing solutions, docs. Prefer primary sources (official docs, source code, specs) over write-ups of them.
    Summarize findings with `[source: ...]` tags inline as you go; do not
    write the final note yet.
 3. **Suggestion** -- propose 1-3 candidate directions, each with its
@@ -68,7 +68,7 @@ Problem: "Choose a caching strategy for a read-heavy internal API."
   that paper.
 - A highly ambiguous request that needs a full ambiguity interview before
   any research starts is out of scope for step 1's one-line check; that
-  level of interview belongs to plan-griller, but deep-research does not
+  level of interview belongs to grill-me, but deep-research does not
   invoke it automatically -- step 1 stays a lightweight checkpoint.
 
 ## Further reading

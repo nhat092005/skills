@@ -33,7 +33,7 @@ resumed or audited later even if interrupted.
 
 Without a cap, step 5's loop-back has no natural stopping point and can
 burn arbitrary context on a dead-end direction. 3 rounds mirrors the
-hypothesis-count guidance in `diagnose-loop` (2-3 hypotheses before
+hypothesis-count guidance in `diagnose-bug` (2-3 hypotheses before
 escalating) -- enough for one wrong Suggestion to get corrected once, tight
 enough that a genuine dead end surfaces to the user quickly instead of
 silently consuming the session.
