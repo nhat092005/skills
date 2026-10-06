@@ -1,6 +1,3 @@
-<type>(<scope>): <description>
+<type>(<scope>): <short description>
 
-<optional body explaining why the change is needed and any key tradeoffs>
-
-<optional footer such as BREAKING CHANGE: ...>
-<optional footer such as Refs: ...>
+<optional: 1-3 lines on why, only if not obvious>

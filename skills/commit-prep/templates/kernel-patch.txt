@@ -1,7 +1,6 @@
-<subsystem>: <short summary in imperative mood>
+<subsystem>: <short summary>
 
-<body explaining the problem, the impact, and the fix>
+<problem, impact, fix: a few short lines>
 
-<optional trailer such as Fixes: 123456789abc ("original summary")>
-<optional trailer such as Reviewed-by: Name <email>>
+<optional: Fixes: 123456789abc ("original summary")>
 Signed-off-by: <name> <email>
