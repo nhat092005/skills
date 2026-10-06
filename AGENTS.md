@@ -32,10 +32,21 @@ Before implementing:
 Minimum code that solves the problem. Nothing speculative.
 
 - No features beyond what was asked.
-- No abstractions for single-use code.
+- No abstractions for single-use code: no interface, factory, or config with one implementation or one value.
+- Duplicate until the third real use. Share code only when it encodes the same business rule or security boundary, not when it merely looks alike.
 - No flexibility or configurability that was not requested.
-- No error handling for impossible scenarios.
+- No error handling for impossible scenarios. Never drop validation at trust boundaries, data-loss handling, or security.
 - If 200 lines can be 50, simplify.
+
+Before writing code, read the task and the code it touches, then stop at the first step that holds (if two work, take the higher):
+
+1. Does this need to exist? Speculative need: skip it and say so in one line.
+2. Already in this codebase? Reuse it.
+3. Does the stdlib cover it?
+4. Does a native platform feature cover it? (native input over a picker lib, CSS over JS, DB constraint over app code)
+5. Does an installed dependency cover it? Never add a new one for what a few lines can do.
+6. Can it be one readable line?
+7. Only then: write the minimum code.
 
 Ask: "Would a senior engineer say this is overcomplicated?" If yes, simplify.
 
@@ -120,3 +131,4 @@ A task is done only when the requested change and its proof are both clear:
 - do not claim a fix, test, or build passes without fresh verification evidence from the current turn
 - affected docs, contracts, or plans are still current when the task changed them
 - the final response states what changed, what was verified, and what was not attempted
+
