@@ -18,7 +18,7 @@ missing, say so instead of estimating it.
 
 ## Output language
 
-Default: Vietnamese, full diacritics (khong -> không). User can override,
+Default: Vietnamese, full diacritics (never strip tone marks). User can override,
 e.g. "write in English". Keep proper nouns / technical terms in original form.
 
 ## Conciseness -- this is what usually goes wrong

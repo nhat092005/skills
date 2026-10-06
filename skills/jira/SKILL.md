@@ -1,5 +1,5 @@
 ---
-name: jira-description
+name: jira
 description: Write short Jira ticket descriptions and comments (feature, bug, progress report, blocker) in Jira wiki markup. Use when the user asks to write, format, update, or review a Jira description, Jira comment, Jira ticket, bug report, or mentions "jira-description", "viết jira", "tạo jira", "jira ticket", "comment jira".
 ---
 
