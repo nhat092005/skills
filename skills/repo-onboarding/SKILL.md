@@ -1,11 +1,11 @@
 ---
-name: repo-bootstrap
+name: repo-onboarding
 description: Use when starting work in an unfamiliar repository, resuming after context loss, needing to discover the real source of truth before editing code, or turning a rough onboarding prompt into an execution-ready repo-orientation prompt.
 metadata:
   dependencies: []
 ---
 
-# Repo Bootstrap
+# Repo Onboarding
 
 Build context from the repo's real constraints before changing anything.
 

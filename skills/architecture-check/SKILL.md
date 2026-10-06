@@ -1,9 +1,9 @@
 ---
-name: zoom-out-architecture
+name: architecture-check
 description: Use when a local change may hide broader architectural coupling, naming drift, or complexity growth and you need to evaluate it in system context before proceeding.
 ---
 
-# Zoom Out Architecture
+# Architecture Check
 
 Pause local optimization long enough to ask whether the surrounding design still makes sense. The aim is to prevent accidental complexity from spreading one patch at a time.
 
@@ -42,5 +42,5 @@ Pause local optimization long enough to ask whether the surrounding design still
 
 ## Further reading
 
-- `../repo-bootstrap/SKILL.md` - use first when the repo or subsystem is still too unfamiliar for architecture judgment
-- `../plan-griller/SKILL.md` - use when the main blocker is ambiguity in scope or implementation target rather than architectural coupling
+- `../repo-onboarding/SKILL.md` - use first when the repo or subsystem is still too unfamiliar for architecture judgment
+- `../grill-me/SKILL.md` - use when the main blocker is ambiguity in scope or implementation target rather than architectural coupling

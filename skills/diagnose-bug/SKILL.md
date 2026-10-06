@@ -1,9 +1,9 @@
 ---
-name: diagnose-loop
+name: diagnose-bug
 description: Use when a bug, flaky test, unexpected runtime behavior, or contradiction between code and observed output needs disciplined debugging before fixing.
 ---
 
-# Diagnose Loop
+# Diagnose Bug
 
 ## Overview
 
@@ -21,6 +21,7 @@ Debug with evidence, not optimism. The fix should follow a reproduced failure an
 1. Build the smallest feedback loop that makes the bug visible.
    Improve it until it is fast enough and deterministic enough to trust.
 2. Reproduce the failure and record the exact symptom.
+   Gate: name one command you already ran that is red-capable (asserts this exact symptom), deterministic, fast, and runnable unattended. No such command, no hypotheses.
 3. Narrow the scope: input, environment, component, or commit range.
 4. List 2-3 plausible hypotheses, then test one at a time.
    Show the ranked list to the user before testing when that checkpoint is cheap.
@@ -31,6 +32,7 @@ Debug with evidence, not optimism. The fix should follow a reproduced failure an
 
 ## Rules
 
+- Redact secrets (tokens, passwords, auth headers) as `<REDACTED>` before showing commands, output, or captured artifacts.
 - Do not patch first and explain later.
 - Do not keep multiple active hypotheses in flight.
 - Change one variable at a time when instrumenting.

@@ -1,9 +1,9 @@
 ---
-name: tdd-slice
+name: tdd
 description: Use when implementing a feature or bugfix with test-first development and you want a disciplined red-green-refactor loop in small vertical slices.
 ---
 
-# TDD Slice
+# TDD
 
 Write one failing behavior, make it pass with minimal code, then repeat. Tests should verify observable behavior through public interfaces.
 
@@ -36,11 +36,13 @@ Write one failing behavior, make it pass with minimal code, then repeat. Tests s
 
 - Use vertical slices, not horizontal batches of tests.
 - Prefer integration-style tests over implementation-coupled tests.
+- Agree the seams (public boundaries to test at) with the user before writing the first test; test only at agreed seams.
+- Do not write tautological tests: the expected value must come from an independent source (a literal, a worked example, the spec), not from recomputing it the way the code does.
 - Do not add speculative behavior for future tests.
 - Name tests in the project's domain language when available.
 - Do not call the slice complete without one failing-then-passing proof.
 
 ## Further reading
 
-- `../plan-griller/SKILL.md` - use first when the change is too ambiguous to choose the next test safely
-- `../diagnose-loop/SKILL.md` - use when the test or runtime behavior is failing for reasons you cannot yet explain
+- `../grill-me/SKILL.md` - use first when the change is too ambiguous to choose the next test safely
+- `../diagnose-bug/SKILL.md` - use when the test or runtime behavior is failing for reasons you cannot yet explain
