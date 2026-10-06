@@ -26,7 +26,7 @@ Debug with evidence, not optimism. The fix should follow a reproduced failure an
    Show the ranked list to the user before testing when that checkpoint is cheap.
 5. Add the smallest useful instrumentation.
 6. Confirm or kill the hypothesis with evidence.
-7. Apply the narrowest fix that matches the proven cause.
+7. Apply the narrowest fix that matches the proven cause. Grep every caller and fix once at the shared point, not at the symptom.
 8. Add a regression test when there is a reliable seam; otherwise rerun the feedback loop and document the missing seam.
 
 ## Rules
