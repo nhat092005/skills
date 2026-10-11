@@ -1,6 +1,6 @@
 # Skills
 
-Personal agent skills. `skills/` is linked to `~/.claude/skills` and `AGENTS.md` to `~/.claude/CLAUDE.md` by `link-setup.sh`.
+Personal agent skills and subagents. `skills/` is linked to `~/.claude/skills`, `agents/` to `~/.claude/agents`, and `AGENTS.md` to `~/.claude/CLAUDE.md` by `link-setup.sh`.
 
 ## Plan and decide
 
@@ -45,3 +45,14 @@ Personal agent skills. `skills/` is linked to `~/.claude/skills` and `AGENTS.md`
 | `en-vi-tutor` | Understanding English technical text, explained sentence by sentence in Vietnamese. |
 | `caveman` | Replies should be as terse as possible to save tokens. |
 | `write-a-skill` | Creating a new skill. |
+
+## Subagents
+
+| Agent | Model / effort | Use when |
+|---|---|---|
+| `scout` | haiku / low | Locating files, functions, and usages. |
+| `doc-reader` | haiku / low | Reading long docs, web pages, or logs for specific facts. |
+| `test-runner` | haiku / low | Running tests, builds, or linters and reporting only failures. |
+| `reviewer` | sonnet / high | Reviewing changed code for bugs and security issues. |
+| `fact-checker` | sonnet / medium | Verifying numbers, quotes, and citations against their sources. |
+| `guide-writer` | sonnet / medium | Writing parts of a multi-part markdown guide from a verified facts file. |

@@ -23,6 +23,7 @@ link() {
 link "$REPO_DIR" "$AGENTS"
 
 link "$AGENTS/skills" "$HOME/.claude/skills"
+link "$AGENTS/agents" "$HOME/.claude/agents"
 link "$AGENTS/AGENTS.md" "$HOME/.claude/CLAUDE.md"
 
 # add a new tool here, same pattern, e.g.:
