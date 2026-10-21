@@ -55,4 +55,4 @@ Personal agent skills and subagents. `skills/` is linked to `~/.claude/skills`, 
 | `test-runner` | haiku / low | Running tests, builds, or linters and reporting only failures. |
 | `reviewer` | sonnet / high | Reviewing changed code for bugs and security issues. |
 | `fact-checker` | sonnet / medium | Verifying numbers, quotes, and citations against their sources. |
-| `guide-writer` | sonnet / medium | Writing parts of a multi-part markdown guide from a verified facts file. |
+| `guide-writer` | sonnet / medium | Writing parts of a multi-part guide (.md or .rst) from a verified facts file. |
